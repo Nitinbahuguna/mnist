@@ -2,7 +2,7 @@
 
 <head>
     <title>MNIST</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.2"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"> </script>
     <script type="text/javascript">
         // Variables for referencing the canvas and 2dcanvas context
         var canvas, ctx;
@@ -120,6 +120,9 @@
         }
         // Set-up the canvas and add our event handlers after the page has loaded
         async function init() {
+              model = await tf.loadModel('model.json');
+  
+              console.log("model loaded..");
             // Get the specific canvas element from the HTML document
             canvas = document.getElementById('sketchpad');
             // If the browser supports the canvas tag, get the 2d drawing context for this canvas
@@ -136,7 +139,13 @@
                 canvas.addEventListener('touchend', sketchpad_touchEnd, false);
                 canvas.addEventListener('touchmove', sketchpad_touchMove, false);
             }
-            model = await tf.loadModel('model.json');
+             // model = await tf.loadModel('model.json');
+
+            
+  
+  // load the model using a HTTPS request (where you have stored your model files)
+              
+
         }
         function predict() {
             const imageData = ctx.getImageData(0, 0, 140, 140);
