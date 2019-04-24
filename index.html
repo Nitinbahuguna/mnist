@@ -136,7 +136,7 @@
                 canvas.addEventListener('touchend', sketchpad_touchEnd, false);
                 canvas.addEventListener('touchmove', sketchpad_touchMove, false);
             }
-            model = await tf.loadModel('model.json');
+            model = await tf.loadModel('https://github.com/Nitinbahuguna/mnist/blob/master/model.json');
         }
         function predict() {
             const imageData = ctx.getImageData(0, 0, 140, 140);
