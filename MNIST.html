@@ -173,7 +173,9 @@
                 canvas.addEventListener('touchend', sketchpad_touchEnd, false);
                 canvas.addEventListener('touchmove', sketchpad_touchMove, false);
             }
+            console.log("model");
             model = await tf.loadModel('model.json');
+            console.log(model);
         }
 
         function predict() {
